@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Slab&display=swap');
+div{
+    font-family: 'Lobster', cursive;
+    font-family: 'Roboto Slab', serif;  
+}
+img{
+  animation: marquee-vertical-alt 10s linear infinite;
+  height: 20%;
+  width: 100%;
+  margin: 2% 0%;
+  transform: translateY(-300%);
+}
+@keyframes marquee-vertical-alt{
+/*in the 0%, the default position of translateY(-300%) will be applied*/
+
+  /*here 100% means after our animation gets completed for a single loop, 
+  then how does our imae section look like*/
+    100% {
+      transform: translateY(350%);
+    }
+  }
