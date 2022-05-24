@@ -1,14 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Slab&display=swap');
-div{
+.box{
     font-family: 'Lobster', cursive;
     font-family: 'Roboto Slab', serif;  
 }
-img{
-  animation: marquee-vertical-alt 10s linear infinite;
-  height: 20%;
-  width: 100%;
-  margin: 2% 0%;
-  transform: translateY(-300%);
+.animate{
+  animation: marquee-vertical-alt 15s linear 0s infinite;
+  width: 80%;
+  margin: 0% 0%;
+  transform: translateY(-90%) translateX(4%);
+  padding: 0%;
+  opacity: 0.9;
+}
+.animate img{
+  height: 30%;
+  width: 80%;
+  margin: 1% 0%;
+  filter: sepia(0.5);
+  opacity: 1;
+  border-radius: 5%;
+}   
+.bgimg{
+  z-index: 2;
+  opacity: 0.5;
+  margin-top: '50%';
+  width: '80%'
 }
 @keyframes marquee-vertical-alt{
 /*in the 0%, the default position of translateY(-300%) will be applied*/
@@ -16,6 +31,12 @@ img{
   /*here 100% means after our animation gets completed for a single loop, 
   then how does our imae section look like*/
     100% {
-      transform: translateY(350%);
+      transform: translateY(100%) translateX(4%);
     }
   }
+  a:-webkit-any-link {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 15px;
+}

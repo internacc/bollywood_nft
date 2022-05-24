@@ -1,0 +1,27 @@
+.images1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0%;
+    animation: scroll1 25s linear 1s infinite;
+    transform: translateY(-62%);
+}
+@keyframes scroll1 {
+    0%{
+        transform: translateY(-62%);
+    }
+    100%{
+        transform: translateY(62%);
+    }
+}
+.btn a:-webkit-any-link {
+    color: #171617;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 15px;
+}
+.btn a:hover{
+    background-color: #82954B; 
+    color: #EFD345
+}

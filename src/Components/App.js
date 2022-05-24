@@ -1,10 +1,11 @@
 import '../styles/App.css';
 import Mainpg from './maingpg';
-import Roadmap from './roadmap';
 import Team from './team'
 import { Routes, Route} from "react-router-dom";
-import FAQ from './faq';
 import NFT from './nft';
+import Roadmap from './roadmap';
+import FAQ from './faq';
+
 
 
 function App() {
@@ -12,10 +13,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Mainpg />} />
-        <Route path="/roadmap" element={<Roadmap />} />
+        <Route path="/NFT" element={<NFT />} />
         <Route path="/team" element={<Team />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/nft" element={<NFT />} />
+        <Route path="/roadmap" element={<Roadmap />} />
+        <Route path="faq" element={<FAQ/>} />
       </Routes>
       
     </div>

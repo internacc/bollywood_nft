@@ -1,0 +1,24 @@
+[{
+    "id": "1",
+    "name":"name1",
+    "twitter":"twitteracc1",
+    "img":"reel1.png"
+},
+{
+    "id": "2",
+    "name":"name2",
+    "twitter":"twitteracc2",
+    "img":"reel2.png"
+},
+{
+    "id": "3",
+    "name":"name3",
+    "twitter":"twitteracc3",
+    "img":"reel3.png"
+},
+{
+    "id": "4",
+    "name":"name4",
+    "twitter":"twitteracc4",
+    "img":"reel4.png"
+}]

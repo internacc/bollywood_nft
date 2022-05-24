@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import { Button, Typography } from '@mui/material';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import '../styles/main.css';
+import { Link } from 'react-router-dom';
 
 //this is the new path. The older path has changed from @mui/styles to @mui/material/styles.
 //makeStyles is no longer working with react ^18.0.0
@@ -25,69 +26,65 @@ import '../styles/main.css';
 // });
 
 const Typo = styled(Typography)(({ theme }) => ({
-  marginRight: '20%'
+  marginRight: '20%',
+  fontFamily: 'Work Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif',
+  fontWeight: '900',
+  fontSize: '30px'
 }));
 const Btn = styled(Button)(({theme})=>({
   padding: '2% 12%', 
-  background: 'yellow', 
+  background: '#A25B5B', 
   '&:hover':{
-    background: 'green'
+    background: '#CC9C75'
   }
 }))
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    backgroundColor: '#D5D8B5',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     display : 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     color: theme.palette.text.secondary,
+    opacity: 1,
   }));
 const Item3 = styled(Item)(({theme})=>({
-  height: '100vh', 
-  backgroundImage: 'url(flower_bg.png)',
-  // background: '#BABD42',
+  height: '150vh', 
+  background: '#000000',
   color: '#fff',
   display: 'flex', 
   flexDirection: 'column',
   overflow: 'hidden',
-  border: '20px dashed black',
+  borderStyle: 'dashed',
+  borderColor: '#A9A9A9',
+  borderWidth: '25px',
   borderBottom: '0px',
   borderTop: '0px',
-  padding: '0%',
 }))
-const Item2 = styled(Item)(({theme})=>({
-  
-    padding: '0', 
-    height: '100vh',  
-    backgroundImage: 'url(flower_bg.png)', 
-  }
-))
 const Mainpg = () => {
-  // const classes=useStyles();
       return ( <div className='entry'>
-        <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={0} sx={{display: 'flex', justifyContent :'space-around', boxSizing: 'border-box',backgroundImage: 'url(flower_bg.png)'}}>
-        <Grid item xs={12} md={4}>
-          <Item3>
-            <div className='animate'>
-              <img src='img1.jpg' alt="not availble"></img>
-              <img src='img3.jpg' alt="not availble"></img>
-              <img src='img2.jpg' alt="not availble"></img>
-              <img src='flower_bg.png' alt="not availble"></img>
-            </div>
+      <Box classname="box" sx={{ flexGrow: 1}}>
+      <Grid container spacing={1} sx={{display: 'flex', justifyContent :'space-between', background: '#000000'}}>
+        <Grid item xs={12} md={3} sx={{overflow: 'hidden'}}>
+          <Item3 className='animate' sx={{margin: '-2%'}}>
+              <img src='reel_1.png' alt="not availble" opacity="0.6"></img>
+              <img src='reel_2.png' alt="not availble" opacity="0.6"></img>
+              <img src='reel_3.png' alt="not availble" opacity="0.6"></img>
+              <img src='reel_4.png' alt="not availble" opacity="0.6"></img>
+              <img src='reel_5.png' alt="not availble" opacity="0.6"></img>
           </Item3>
         </Grid>
-        <Grid item xs={12} md={8}> 
-        <Item2>
-          <Item sx={{ display:'flex', alignItems: 'center', justifyContent: 'space-around'}}>
-            <Typography variant='h4' sx={{textAlign: 'center', marginRight: '5rem', color: '#6FDFDF'}}>ENTER THE WORLD OF BOLLYWOOD MAGIC!</Typography>
-            <Btn variant='contained' ><Typo variant='h5'>ENTER</Typo><KeyboardDoubleArrowDownIcon /></Btn>
-          </Item>
-        </Item2>
+        <Grid item xs={12} md={9}> 
+        
+        <Item sx={{ justifyContent: 'space-between', position: 'absolute', zIndex: '2', width: '60vw',margin: '35% 0% 0% 7%'}}>
+          <Typography variant='h4' sx={{textAlign: 'center', marginRight: '5rem', color: '#CC9C75', fontWeight: '700', fontFamily: 'Work Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif'}}>ENTER THE WORLD OF BOLLYWOOD MAGIC!</Typography>
+          <Btn variant='contained' ><Link to="/nft"><Typo variant='h5'>ENTER</Typo></Link><KeyboardDoubleArrowDownIcon size='large'/></Btn>
+        </Item>
+        <img src="bg_img.png" alt="not avaialble" width="100%" className='bgimg'></img>
         </Grid>
       </Grid>
     </Box>
+
     </div> );
 }
  

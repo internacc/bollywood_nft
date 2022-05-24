@@ -8,52 +8,63 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import datas from '../data/faq.json';
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    backgroundColor: '#d8baff',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
     marginBottom: '3rem'
   }));
+const Item2 = styled(Item)(({ theme }) => ({
+  width: '98vw',
+  height: '30vh',
+  display: 'flex',
+  alignItems: 'center', 
+  justifyContent: 'center', 
+  flexDirection: 'column', 
+  marginTop: '0', 
+  marginBottom: '0', 
+  paddingLeft: '0%', 
+  border: '0px',
+}));
 const Accordion = styled((props) => (
     <MuiAccordion elevation={0} {...props} />
   ))(({ theme }) => ({
-    border: `1px solid ${theme.palette.divider}`,
+    
     '&:not(:last-child)': {
       borderBottom: 0,
     },
     '&:before': {
       display: 'none',
     },
-    
+    height: '100%'
   }));
   
   const AccordionSummary = styled((props) => (
     <MuiAccordionSummary
-      expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '3rem' }} />}
+      expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '3rem'}} />}
       {...props}
     />
   ))(({ theme }) => ({
-    backgroundColor:
-      theme.palette.mode === 'dark'
-        ? 'rgba(255, 255, 255, .05)'
-        : 'rgba(0, 0, 0, .03)',
+    backgroundColor:'#d8baff',
     flexDirection: 'row-reverse',
     
     '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
       transform: 'rotate(90deg)',
+      color: '#171620'
     },
     '& .MuiAccordionSummary-content': {
-      marginLeft: theme.spacing(5),
+      marginLeft: theme.spacing(4),
     },
   }));
   
   const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     padding: theme.spacing(2),
-    borderTop: '1px solid rgba(0, 0, 0, .125)',
-    
+    background: '#d8baff',
+    height: '100%'
   }));
 
 const FAQ = () => {
@@ -63,57 +74,30 @@ const FAQ = () => {
     setExpanded(newExpanded ? panel : false);
   };
     return ( <div>
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, boxSizing: 'border-box'}}>
       <Grid container spacing={5}>
         <Grid item xs={12}>
-          <Item sx={{width: '100vw', height: '20vh', background: 'yellow'}}><Typography variant="h3" sx={{marginTop: '1.8%'}}>FAQ</Typography></Item>
-        </Grid>
-        <Grid item xs={12}>
-          <Item sx={{width: '100vw', height: '40vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
-          <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} sx={{height: '100%', textAlign:'center'}}>
-        <AccordionSummary id="panel1d-header">
-          <Typography sx={{fontSize: '3rem', padding: '2rem'}}>QUESTION 1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{fontSize: '1.5rem', alignContent: 'left', textAlign: 'left'}}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')} sx={{height: '100%'}}>
-        <AccordionSummary id="panel2d-header">
-          <Typography sx={{fontSize: '3rem', padding: '2rem' }}>QUESTION 2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{fontSize: '1.5rem', textAlign: 'left'}}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')} sx={{height: '100%'}}>
-        <AccordionSummary id="panel3d-header" sx={{}}>
-          <Typography sx={{fontSize: '3rem', padding: '2rem'}}>QUESTION 3</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{fontSize: '1.5rem', textAlign: 'left'}}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+          <Item sx={{width: '100%', height: '100%', background: '#d8baff'}}><Typography variant="h1" sx={{marginTop: '20px', color: '#171620', fontSize:'4.5rem', fontWeight: '900', fontFamily: 'Work Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif'}}>FAQ</Typography>
+            {datas.map((data)=>(
+              <div>
+                <Item2 sx={{}}>
+              <Accordion expanded={expanded === `${data.panel}`} onChange={handleChange(`${data.panel}`)} sx={{height: '100%', textAlign:'center', margin: '0', backgroundColor: '#d8baff'}}>
+              <AccordionSummary>
+                <Typography sx={{fontSize: '3rem', color:'#171620', fontFamily: 'Work Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif', fontWeight: '800'}}>Question {data.no}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography sx={{fontSize: '1.5rem', alignContent: 'left', textAlign: 'left', color: '#171620', fontFamily: 'Work Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif'}}>
+                  {data.ans}
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+                </Item2>
+                </div>
+            ))}
           </Item>
         </Grid>
         </Grid>
-        </Box>
-        
+        </Box> 
     </div> );
 }
  
